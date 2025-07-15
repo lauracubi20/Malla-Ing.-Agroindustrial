@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular - Ingeniería Agroindustrial</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #F06292;
+        }
+        .semestre {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .semestre h2 {
+            width: 100%;
+            text-align: center;
+            color: #F06292;
+        }
+        .materia {
+            background-color: white;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 45%;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .materia.aprobada {
+            background-color: #A5D6A7;
+            text-decoration: line-through;
+        }
+        .materia.bloqueada {
+            background-color: #FFEBEE;
+            cursor: not-allowed;
+        }
+        .tooltip {
+            display: none;
+            position: absolute;
+            background-color: #F8BBD0;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 12px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .materia.bloqueada:hover .tooltip {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Malla Curricular: Ingeniería Agroindustrial</h1>
+
+    <!-- Semestre 1 -->
+    <div class="semestre" id="semestre1">
+        <h2>Semestre 1</h2>
+        <div class="materia" data-id="1">Cálculo Diferencial</div>
+        <div class="materia" data-id="2">Física Mecánica</div>
+        <div class="materia" data-id="3">Química General</div>
+        <div class="materia" data-id="4">Dibujo de Ingeniería</div>
+        <div class="materia" data-id="5">Introducción a la Ingeniería Agroindustrial</div>
+        <div class="materia" data-id="6">Constitución Política</div>
+        <div class="materia" data-id="7">Comunicación Lingüística</div>
+    </div>
+
+    <!-- Semestre 2 -->
+    <div class="semestre" id="semestre2">
+        <h2>Semestre 2</h2>
+        <div class="materia" data-id="8" data-requisitos="1">Cálculo Integral</div>
+        <div class="materia" data-id="9" data-requisitos="2">Física Electromagnética</div>
+        <div class="materia" data-id="10" data-requisitos="3">Bioquímica</div>
+        <div class="materia" data-id="11">Biología General</div>
+        <div class="materia" data-id="12">Álgebra Lineal</div>
+        <div class="materia" data-id="13">Inglés I</div>
+    </div>
+
+    <!-- Semestre 3 -->
+    <div class="semestre" id="semestre3">
+        <h2>Semestre 3</h2>
+        <div class="materia" data-id="14" data-requisitos="8">Cálculo Vectorial</div>
+        <div class="materia" data-id="15" data-requisitos="8">Termodinámica</div>
+        <div class="materia" data-id="16" data-requisitos="11">Sistemas Productivos Agrícolas</div>
+        <div class="materia" data-id="17">Electiva Co-SH (I)</div>
+        <div class="materia" data-id="18" data-requisitos="4">Dibujo de Planos Arquitectónicos y Mecánicos</div>
+        <div class="materia" data-id="19">Introducción a la Programación</div>
+        <div class="materia" data-id="20">Inglés II</div>
+        <div class="materia" data-id="21">Deporte Formativo</div>
+    </div>
+
+    <!-- Semestre 4 -->
+    <div class="semestre" id="semestre4">
+        <h2>Semestre 4</h2>
+        <div class="materia" data-id="22" data-requisitos="14">Ecuaciones diferenciales</div>
+        <div class="materia" data-id="23" data-requisitos="8">Mecánica de Fluidos</div>
+        <div class="materia" data-id="24" data-requisitos="14">Métodos Numéricos</div>
+        <div class="materia" data-id="25" data-requisitos="10">Microbiología General</div>
+        <div class="materia" data-id="26" data-requisitos="11">Producción Pecuaria y Acuícola</div>
+        <div class="materia" data-id="27">Fundamentos de Economía</div>
+        <div class="materia" data-id="28">Ética</div>
+        <div class="materia" data-id="29">Inglés III</div>
+    </div>
+
+    <!-- Semestre 5 -->
+    <div class="semestre" id="semestre5">
+        <h2>Semestre 5</h2>
+        <div class="materia" data-id="30">Probabilidad y Estadística</div>
+        <div class="materia" data-id="31" data-requisitos="15">Transferencia de Calor</div>
+        <div class="materia" data-id="32" data-requisitos="10">Fisiología Postcosecha</div>
+        <div class="materia" data-id="33" data-requisitos="10">Química de Materias Primas</div>
+        <div class="materia" data-id="34">Electiva Emprendimiento e Innovación</div>
+        <div class="materia" data-id="35">Electiva CB</div>
+        <div class="materia" data-id="36">Inglés IV</div>
+    </div>
+
+    <!-- Semestre 6 -->
+    <div class="semestre" id="semestre6">
+        <h2>Semestre 6</h2>
+        <div class="materia" data-id="37">Contabilidad Administrativa</div>
+        <div class="materia" data-id="38" data-requisitos="31">Balance de Materia y Energía</div>
+        <div class="materia" data-id="39" data-requisitos="33">Biotecnología</div>
+        <div class="materia" data-id="40" data-requisitos="32">Agroindustria Rural</div>
+        <div class="materia" data-id="41" data-requisitos="25">Aseguramiento de la Calidad</div>
+        <div class="materia" data-id="42">Electiva CBI I</div>
+    </div>
+
+    <!-- Semestre 7 -->
+    <div class="semestre" id="semestre7">
+        <h2>Semestre 7</h2>
+        <div class="materia" data-id="43" data-requisitos="37">Contabilidad de Costos</div>
+        <div class="materia" data-id="44" data-requisitos="38">Transferencia de Masa</div>
+        <div class="materia" data-id="45" data-requisitos="38">Almacenamiento de Productos Agropecuarios</div>
+        <div class="materia" data-id="46">Fundamentos de Administración</div>
+        <div class="materia" data-id="47" data-requisitos="41">Planeación y Control de Producción</div>
+        <div class="materia" data-id="48">Medio Ambiente</div>
+        <div class="materia" data-id="49">Electiva CBI II</div>
+    </div>
+
+    <!-- Semestre 8 -->
+    <div class="semestre" id="semestre8">
+        <h2>Semestre 8</h2>
+        <div class="materia" data-id="50" data-requisitos="43">Mercadeo y Comercio Internacional</div>
+        <div class="materia" data-id="51" data-requisitos="44">Tecnología de Café y Cacao</div>
+        <div class="materia" data-id="52" data-requisitos="32">Procesos Industriales Fruver</div>
+        <div class="materia" data-id="53" data-requisitos="47">Formulación y Evaluación de Proyectos Agroindustriales</div>
+        <div class="materia" data-id="54" data-requisitos="47">Diseño de Plantas Agroindustriales</div>
+        <div class="materia" data-id="55">Seminario de Grado</div>
+        <div class="materia" data-id="56">Electiva Co-SH</div>
+    </div>
+
+    <!-- Semestre 9 -->
+    <div class="semestre" id="semestre9">
+        <h2>Semestre 9</h2>
+        <div class="materia" data-id="57" data-requisitos="39">Procesos Industriales Cárnicos</div>
+        <div class="materia" data-id="58">Electiva IA (I)</div>
+        <div class="materia" data-id="59" data-requisitos="39">Procesos Industriales Lácteos</div>
+        <div class="materia" data-id="60" data-requisitos="54">Gestión Ambiental Agroindustrial</div>
+        <div class="materia" data-id="61">Electiva IA (II)</div>
+        <div class="materia" data-id="62">Electiva IA (III)</div>
+    </div>
+
+    <!-- Semestre 10 -->
+    <div class="semestre" id="semestre10">
+        <h2>Semestre 10</h2>
+        <div class="materia" data-id="63" data-requisitos="44">Procesos Industriales Granos y Semillas</div>
+        <div class="materia" data-id="64" data-requisitos="39">Industrialización de Productos no Alimentarios</div>
+        <div class="materia" data-id="65">Electiva IA (IV)</div>
+        <div class="materia" data-id="66">Electiva IA (V)</div>
+    </div>
+
+    <script>
+        // JavaScript para interactividad
+        document.addEventListener('DOMContentLoaded', function() {
+            const progreso = JSON.parse(localStorage.getItem('progreso')) || {};
+
+            function toggleMateria(id) {
+                const materia = document.querySelector(`[data-id="${id}"]`);
+                if (materia.classList.contains('bloqueada') || materia.classList.contains('aprobada')) {
+                    return;
+                }
+
+                materia.classList.toggle('aprobada');
+                progreso[id] = materia.classList.contains('aprobada');
+                localStorage.setItem('progreso', JSON.stringify(progreso));
+                desbloquearDependencias();
+            }
+
+            function bloquearDependencias() {
+                const materias = document.querySelectorAll('.materia');
+                materias.forEach(materia => {
+                    const id = materia.getAttribute('data-id');
+                    const requisitos = materia.getAttribute('data-requisitos');
+                    const requisitoIds = requisitos ? requisitos.split(',') : [];
+
+                    if (requisitoIds.length > 0 && !requisitoIds.every(reqId => progreso[reqId])) {
+                        materia.classList.add('bloqueada');
+                        materia.innerHTML += `<span class="tooltip">Requiere aprobar: ${requisitoIds.join(', ')}</span>`;
+                    } else {
+                        materia.classList.remove('bloqueada');
+                    }
+
+                    if (progreso[id]) {
+                        materia.classList.add('aprobada');
+                    }
+                });
+            }
+
+            function desbloquearDependencias() {
+                bloquearDependencias();
+            }
+
+            document.querySelectorAll('.materia').forEach(materia => {
+                materia.addEventListener('click', function() {
+                    const id = parseInt(materia.getAttribute('data-id'));
+                    toggleMateria(id);
+                });
+            });
+
+            bloquearDependencias();
+        });
+    </script>
+</body>
+</html>
